@@ -1,0 +1,149 @@
+\input{configuration}
+
+\title{Tutorial 1}
+
+\author{Richard Wong \\ \small \texttt{rk2wong@edu.uwaterloo.ca}}
+\institute{Department of Electrical and Computer Engineering \\
+  University of Waterloo}
+\date{\today}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+
+\end{frame}
+
+\begin{frame}
+\frametitle{The Entity-Relationship Model}
+
+In short, this model lets us represent:\\
+\begin{itemize}
+\item tables in a database with \textbf{mathematical sets}, and
+\item queries on the database with a language called the \textbf{relational algebra}.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Nouns of the Relational Model (1/2)}
+
+A \textbf{relation} $R$ is equivalent to a table.
+
+An \textbf{attribute} $A$ is equivalent to a column of a table.
+
+We describe the combination of relation and attributes with a \textbf{relation schema} of the form $R(A_1, A_2, ... , A_n)$.
+
+$Student(student\_number, name, address)$ tells us:\\
+\begin{itemize}
+\item there is a table called \texttt{Student}, and
+\item it has attributes \texttt{name} and \texttt{address}.
+\end{itemize}
+
+\texttt{name} is an attribute of the relation \texttt{Student}.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Nouns of the Relational Model (2/2)}
+
+The \textbf{contents} of a relation $R$ are denoted $r(R)$.
+
+$r(R)$ is an (unordered) set of (ordered) \textbf{n-tuples}.
+
+Each \textbf{n-tuple} of $r(R)$ is equivalent to a row in the relation/table $R$.
+
+The elements of each n-tuple correspond with the attributes $A_1, A_2, ... , A_n$ of $R$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Nouns of the Entity-Relationship Model (1/X)}
+
+An \textbf{entity} [table] is equivalent to a relation, which is equivalent to a table.\\
+\begin{itemize}
+\item \texttt{Student} can be an entity in an E-R model.
+\end{itemize}
+
+However, we also use the term \textbf{entity} to describe an object in the real world, indistinguishable from other objects.\\
+\begin{itemize}
+\item A student with student number 20000000 and name Matt is an entity of type \texttt{Student}.
+\end{itemize}
+
+In this way, an entity [object] is equivalent to a row of an entity [table].
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Nouns of the Entity-Relationship Model (2/X)}
+
+An \textbf{entity set} is a set of entities (in the object sense), and is equivalent to the contents of an entity table.\\
+\begin{itemize}
+\item The set of all students studying at the University of Waterloo might comprise the entity set \texttt{Student}.
+\end{itemize}
+
+For instance, \texttt{Student} = \{(20000000, Matt), (20000001, Josh)\}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Nouns of the Entity-Relationship Model (3/X)}
+
+Suppose we have another entity called \texttt{Course}, with attributes \texttt{course\_id} and \texttt{title}.
+
+\texttt{Student} = \{(20000000, Matt), (20000001, Josh)\}\\
+\texttt{Course} = \{(CS101, Intro to CS), (CS999, Super Hard CS)\}
+
+A \textbf{relationship} describes some connection between entities, in both the table sense and the object sense.\\
+\begin{itemize}
+\item In our E-R model, \texttt{Student}s take \texttt{Course}s.
+\item An individual student like Matt can take a course like Intro to CS.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Nouns of the Entity-Relationship Model (4/X)}
+Relationships are formalized as tuples of entities.
+
+If we have the following entities:\\
+$student_1$ = (20000000, Matt)\\
+$course_1$ = (CS101, Intro to CS)
+
+Then we might represent the fact that Matt takes Intro to CS with the relationship ($student_1$, $course_1$).
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Nouns of the Entity-Relationship Model (4/X)}
+
+A \textbf{relationship set} is a set of relationships.\\
+\begin{itemize}
+  \item In an E-R model, a relationship set represents all the ways that entity tables are related.
+  \begin{itemize}
+    \item \texttt{Student}s take \texttt{Courses}.
+    \item \texttt{Courses} have \texttt{Instructors}.
+  \end{itemize}
+
+  \item On an object level, a relationship set represents all of the relationships between individual objects.
+
+  \begin{itemize}
+    \item Matt takes Intro to CS.
+    \item Josh also takes Intro to CS.
+    \item Intro to CS is taught by Prof. X.
+  \end{itemize}
+\end{itemize}
+
+In an E-R model, we can use a table to represent/contain a relationship set.\\
+Such a table will have columns to identify which entities are related.\\
+\begin{itemize}
+  \item The \texttt{StudentTakesCourse} table might have columns for \texttt{student\_id} and \exttt{course\_id}.
+\end{itemize}
+
+\end{frame}
+\end{document}
+
